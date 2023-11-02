@@ -13,8 +13,8 @@ class ApiController extends Controller
 {
     public function users(Request $request){
         
-        $users = User::all();
-        return response()->json($users);
+        /*$users = User::all();*/
+        return response()->json('holi');
     }
 
     

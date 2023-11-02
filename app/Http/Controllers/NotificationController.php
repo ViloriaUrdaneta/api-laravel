@@ -9,7 +9,14 @@ use App\Models\Notification;
 class NotificationController extends Controller
 {
     public function index(){
-        return view('notifications.index');
+        /*return view('notifications.index');*/
+         return response()->json('holi');
+    }
+
+    public function users(Request $request){
+        
+        /*$users = User::all();*/
+        return response()->json('holi');
     }
 
     public function create(){
