@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Notification;
 
@@ -10,13 +11,14 @@ class NotificationController extends Controller
 {
     public function index(){
         /*return view('notifications.index');*/
-         return response()->json('holi');
+        $users = User::all();
+        return response()->json($users);
     }
 
     public function users(Request $request){
         
-        /*$users = User::all();*/
-        return response()->json('holi');
+        $users = User::all();
+        return response()->json($users);
     }
 
     public function create(){
