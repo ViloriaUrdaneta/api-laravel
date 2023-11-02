@@ -13,4 +13,6 @@ class X_usuario extends Model
         'user_email',
         'user_pass'
     ];
+
+
 }
