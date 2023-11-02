@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\X_usuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::get('/', function () {
 Route::get('/notification', [NotificationController::class, 'index']) -> name('notification.index');
 Route::get('/notification/create', [NotificationController::class, 'create']) -> name('notification.create');
 Route::post('/notification', [NotificationController::class, 'store']) -> name('notification.store');
+
+Route::get('/xusuario', [X_usuarioController::class, 'xusuario']);
