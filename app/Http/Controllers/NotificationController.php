@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Notification;
 
@@ -34,6 +33,11 @@ class NotificationController extends Controller
         $newNotification = Notification::create($data);
 
         return redirect(route('notification.index'));
+    }
+
+    public function getNotifications(){
+        $notifications = Notification::all();
+        return response()->json($notifications);
     }
 };
 

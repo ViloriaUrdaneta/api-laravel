@@ -20,15 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/notification', [NotificationController::class, 'index']) -> name('notification.index');
+
 Route::get('/notification/create', [NotificationController::class, 'create']) -> name('notification.create');
 Route::post('/notification', [NotificationController::class, 'store']) -> name('notification.store');
 
 Route::get('/xusuario', [X_usuarioController::class, 'xusuario']);
 
-Route::post('/register', [X_usuarioController::class, 'register'])->withoutMiddleware('web');
+
 
 Route::group(['middleware' => ['cors']], function () {
     
     Route::post('/login', [X_usuarioController::class, 'login'])->withoutMiddleware('web');
+    Route::post('/register', [X_usuarioController::class, 'register'])->withoutMiddleware('web');
+    Route::get('/notification', [NotificationController::class, 'getNotifications'])->withoutMiddleware('web');
 }); 
