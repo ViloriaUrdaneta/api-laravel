@@ -60,9 +60,9 @@ class NotificationController extends Controller
         $xusuario_name = $request->usuario;
         $title = $request->title;
         $body = $request->body;
-        $fcmtoken = $xusuario->fcm_token;
 
         $xusuario = X_usuario::where('user_email', $xusuario_name)->first();
+        $fcmtoken = $xusuario->fcm_token;
 
         $client = new Client();
         $firebaseApiKey = env('FCM_PRIVATE_KEY');
