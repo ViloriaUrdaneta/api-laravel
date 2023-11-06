@@ -33,7 +33,7 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('/login', [X_usuarioController::class, 'login'])->withoutMiddleware('web');
     Route::post('/register', [X_usuarioController::class, 'register'])->withoutMiddleware('web');
     Route::get('/notification', [NotificationController::class, 'getNotifications'])->withoutMiddleware('web');
-    
+    Route::post('/newNotification', [NotificationController::class, 'postNotifications'])->withoutMiddleware('web');
     Route::post('/sendNotification', [NotificationController::class, 'sendNotifications'])->withoutMiddleware('web');
     
 }); 
