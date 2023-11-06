@@ -23,6 +23,7 @@ class X_usuarioController extends Controller
         
         $xusuario->user_email = $request->email;
         $xusuario->user_pass = Hash::make($request->password);
+        $xusuario->last_login = now();
         $xusuario->save();
 
         Auth::login($xusuario);
