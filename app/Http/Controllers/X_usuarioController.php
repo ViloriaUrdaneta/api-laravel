@@ -22,6 +22,7 @@ class X_usuarioController extends Controller
         $xusuario = new X_usuario();
         
         $xusuario->user_email = $request->email;
+        $xusuario->fcm_token = $request->fcmtoken;
         $xusuario->user_pass = Hash::make($request->password);
         $xusuario->last_login = now();
         $xusuario->save();
@@ -48,7 +49,7 @@ class X_usuarioController extends Controller
                 Auth::login($xusuario);
 
                 $lastLogin = $xusuario->last_login;
-
+                $xusuario->fcm_token = $request->fcmtoken;
                 $xusuario->last_login = now();
                 $xusuario->save();
 
