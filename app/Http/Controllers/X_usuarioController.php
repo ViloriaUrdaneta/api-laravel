@@ -34,7 +34,7 @@ class X_usuarioController extends Controller
 
     public function login(Request $request){
         
-        $response = ["status"=>0, "msg"=>""];
+        $response = ["status" => 0, "msg" => "", "last_login" => null];
 
         $user_email = $request->email;
         $user_pass = $request->password;
@@ -43,10 +43,18 @@ class X_usuarioController extends Controller
 
         if($xusuario){
             if(Hash::check($user_pass, $xusuario->user_pass)){
+
                 Auth::login($xusuario);
+
+                $lastLogin = $xusuario->last_login;
+
+                $xusuario->last_login = now();
+                $xusuario->save();
+
                 $token = $xusuario->createToken("example");
                 $response["status"] = 1;
                 $response["msg"] = $token->plainTextToken;
+                $response["last_login"] = $lastLogin; 
                 
             }else{
                 $response["msg"] = "Invalid pasword";

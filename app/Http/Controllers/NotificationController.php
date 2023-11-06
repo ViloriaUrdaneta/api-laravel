@@ -42,9 +42,13 @@ class NotificationController extends Controller
 
     public function postNotifications(Request $request){
 
-        $notification_title = $request->title;
-        $notification_body = $request->body;
-        return response()->json($notification_body);
+        $notification = new Notification();
+        $notification->title = $request->title;
+        $notification->text = $request->body;
+        $notification->created_at = now(); 
+        $notification->save();
+
+        return response()->json($notification);
     }
 };
 
