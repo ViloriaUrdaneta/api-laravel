@@ -46,10 +46,12 @@ class X_usuarioController extends Controller
         if($xusuario){
             if(Hash::check($user_pass, $xusuario->user_pass)){
 
+                $fcm_token = $request->fcmtoken;
+                FirebaseToken::updateOrCreate([], ['token' => $fcm_token]);
                 Auth::login($xusuario);
 
                 $lastLogin = $xusuario->last_login;
-                $xusuario->fcm_token = $request->fcmtoken;
+                $xusuario->fcm_token = $fcm_token;
                 $xusuario->last_login = now();
                 $xusuario->save();
 
