@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 
 Route::get('/notification/create', [NotificationController::class, 'create']) -> name('notification.create');
-
+Route::post('/notification', [NotificationController::class, 'sendNotifications']) -> name('notification.store');
 
 Route::get('/xusuario', [X_usuarioController::class, 'xusuario']);
 
@@ -33,6 +33,7 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('/login', [X_usuarioController::class, 'login'])->withoutMiddleware('web');
     Route::post('/register', [X_usuarioController::class, 'register'])->withoutMiddleware('web');
     Route::get('/notification', [NotificationController::class, 'getNotifications'])->withoutMiddleware('web');
-    Route::post('/notification', [NotificationController::class, 'postNotifications'])->withoutMiddleware('web');
+    
     Route::post('/sendNotification', [NotificationController::class, 'sendNotifications'])->withoutMiddleware('web');
+    
 }); 
