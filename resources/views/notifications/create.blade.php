@@ -12,23 +12,32 @@
         @csrf 
         @method('post')
         <div class="form-group">
-            <label for="">Title</label>
+            <label for="">Destinatario</label>
+            <input 
+                type="text"
+                class="form-control" 
+                name="usuario" 
+                id="usuario" 
+                aria-describedby="helpId" 
+                placeholder="Email destinatario"
+            />
+            <label for="">Título</label>
             <input 
                 type="text"
                 class="form-control" 
                 name="title" 
                 id="title" 
                 aria-describedby="helpId" 
-                placeholder="título"
+                placeholder="Título"
             />
-            <label for="">Text</label>
+            <label for="">Cuerpo</label>
             <input 
                 type="text"
                 class="form-control" 
-                name="text" 
-                id="text" 
+                name="body" 
+                id="body" 
                 aria-describedby="helpId" 
-                placeholder="texto"
+                placeholder="Mensaje"
             />
             <di>
                 <input type="submit" value="Save notification"/>

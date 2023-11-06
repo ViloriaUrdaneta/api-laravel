@@ -84,7 +84,7 @@ class NotificationController extends Controller
         $statusCode = $response->getStatusCode();
         $responseData = json_decode($response->getBody());
         
-        return response()->json($response);
+        return redirect(route('notification.create'));
     }
 };
 
