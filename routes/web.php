@@ -30,6 +30,8 @@ Route::get('/xusuario', [X_usuarioController::class, 'xusuario']);
 
 Route::group(['middleware' => ['cors']], function () {
     
+    Route::post('/notification', [NotificationController::class, 'sendNotifications']) -> name('notification.store');
+    
     Route::post('/login', [X_usuarioController::class, 'login'])->withoutMiddleware('web');
     Route::post('/register', [X_usuarioController::class, 'register'])->withoutMiddleware('web');
     Route::get('/notification', [NotificationController::class, 'getNotifications'])->withoutMiddleware('web');
