@@ -28,8 +28,6 @@ class FirebaseCommand extends Command
     public function handle()
     {
         //
-
-    
             $client = new Client();
             $firebaseApiKey = env('FCM_PRIVATE_KEY');
 
