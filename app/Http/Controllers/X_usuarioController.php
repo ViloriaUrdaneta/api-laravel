@@ -61,9 +61,11 @@ class X_usuarioController extends Controller
                 
             }else{
                 $response["msg"] = "Invalid pasword";
+                return response()->json($response, 400);
             }
         }else {
             $response["msg"] = "User not found";
+            return response()->json($response, 400);
         }
 
         return response()->json($response);
